@@ -75,3 +75,10 @@ body {
 .custom-btn:hover {
     background-color: rgba(39, 39, 39, 0.5); /* Change to grey when hovering */
 }
+
+.truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Adjust the number of lines as needed */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

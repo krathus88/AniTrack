@@ -4,23 +4,23 @@
     <div class="mx-5 mb-4">
         <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
             <div class="carousel-indicators justify-content-start">
-                <% for(let i=0; i<animeName.length; i++) { %>
+                <% for(let i=0; i<animeInfo.length; i++) { %>
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= i %>" class="<%= i === 0 ? 'active' : '' %>"
                     aria-label="Slide <%= i %>" aria-current="<%= i === 0 ? 'true' : 'false' %>"></button>
                 <% } %>
             </div>
             <!-- Carousel Items -->
             <div class="carousel-inner d-flex">
-                <% for(let i=0; i<animeName.length; i++) { %>
+                <% for(let i=0; i<animeInfo.length; i++) { %>
                     <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h1 class="bold-text"><%- animeName[i] %></h1>
-                                <p class="opacity-75 light-text"><%- animeInfo[i] %></p>
+                                <h1 class="bold-text"><%- animeInfo[i].title_english %></h1>
+                                <p class="opacity-75 light-text truncate-text"><%- animeInfo[i].synopsis %></p>
                                 <a class="btn btn-lg btn-primary" href="#" style="z-index: 3; position: relative">Learn More</a>
                             </div>
                             <div class="col-md-8 d-flex justify-content-end align-items-center">
-                                <img src="/images/<%- animeName[i].replace(/\s+/g, '-') %>-background.jpg" class="img-background rounded-5" aria-hidden="true" focusable="false" />
+                                <img src="/images/<%- animeInfo[i].title_english.replace(/\s+/g, '-') %>-background.jpg" class="img-background rounded-5" aria-hidden="true" focusable="false" />
                             </div>
                         </div>
                     </div>
@@ -37,17 +37,17 @@
         <div class="d-flex flex-nowrap overflow-hidden">
             <% for(let i=0; i<12; i++) { %>
                 <a href="#" style="width: auto">
-                    <img class="img-widget rounded-2 pe-3" src="<%- anime[i].images.jpg.large_image_url %>">
+                    <img class="img-widget rounded-2 pe-3" src="<%- topAnime[i].images.jpg.large_image_url %>">
                 </a>
             <% } %>
             <!-- Left button -->
-            <button class="btn custom-btn position-absolute" aria-hidden="true" onclick="scrollContentLeft()">
+            <button class="btn custom-btn position-absolute" aria-hidden="true" onclick="scrollSliderLeft()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
             </button>
             <!-- Right button -->
-            <button class="btn custom-btn position-absolute end-0 mx-5" aria-hidden="true" onclick="scrollContentRight()">
+            <button class="btn custom-btn position-absolute end-0 mx-5" aria-hidden="true" onclick="scrollSliderRight()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
@@ -55,10 +55,10 @@
         </div>
     </div>
     <script>
-        function scrollContentLeft() {
+        function scrollSliderLeft() {
             document.querySelector('.overflow-hidden').scrollBy({ left: -250, behavior: 'smooth' });
         }
-        function scrollContentRight() {
+        function scrollSliderRight() {
             const container = document.querySelector('.overflow-hidden');
             // Check if we are at the end of the slider
             if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {

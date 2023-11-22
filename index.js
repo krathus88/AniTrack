@@ -9,16 +9,24 @@ const API_URL = "https://api.jikan.moe/v4";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const animeName = ["ONE PIECE", "JUJUTSU KAISEN"];
-const animeInfo = ["Some representative placeholder content for the first lide of the carousel", "Some representative placeholder content for the first lide of the carousel"];
+const animeID = [
+    "21", // One Piece
+    "40748" // Jujutsu Kaisen
+];
 
 app.get("/", async (req, res) => {
     try {
-        const result = await axios.get(API_URL + "/top/anime");
+        const topAnimeResult = await axios.get(API_URL + "/top/anime");
+
+        const animeInfo = [];
+        for (const id of animeID) {
+            const animeSearchResult = await axios.get(API_URL + "/anime/" + id);
+            animeInfo.push(animeSearchResult.data.data);
+        }
+        console.log(animeInfo);
         res.render("index.ejs", {
-            anime: result.data.data,
-            animeName,
             animeInfo,
+            topAnime: topAnimeResult.data.data,
         })
     } catch(error) {
         console.log(error.response.data);
