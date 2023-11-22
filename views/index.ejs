@@ -30,7 +30,7 @@
             <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next"></button>
         </div>
     </div>
-    <!-- Top Anime -->
+    <!-- Top Anime Slider -->
     <div class="mx-5 mb-4">
         <h3>Top Anime</h3>
         <hr>
@@ -56,12 +56,18 @@
     </div>
     <script>
         function scrollContentLeft() {
-            // Adjust the scroll behavior as needed
             document.querySelector('.overflow-hidden').scrollBy({ left: -250, behavior: 'smooth' });
         }
         function scrollContentRight() {
-            // Adjust the scroll behavior as needed
-            document.querySelector('.overflow-hidden').scrollBy({ left: 250, behavior: 'smooth' });
+            const container = document.querySelector('.overflow-hidden');
+            // Check if we are at the end of the slider
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                // If at the end, scroll back to the start
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // If not at the end, continue scrolling to the right
+                container.scrollBy({ left: 250, behavior: 'smooth' });
+            }
         }
     </script>
 </main>
