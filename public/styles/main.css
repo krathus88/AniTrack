@@ -62,6 +62,12 @@ body {
     object-fit: cover;
 }
 
+.img-widget-bigger {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+
 [data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target] {
     background-color: white;
 }
@@ -78,7 +84,7 @@ body {
 
 .truncate-text {
     display: -webkit-box;
-    -webkit-line-clamp: 5; /* Adjust the number of lines as needed */
+    -webkit-line-clamp: 4; /* Adjust the number of lines as needed */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

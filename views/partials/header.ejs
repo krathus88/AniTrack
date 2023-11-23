@@ -15,14 +15,12 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <title>AniTrack</title>
 </head>
-<body class="min-vh-100">
+<body class="d-flex flex-column min-vh-100">
     <script>
         // Check for a stored theme in localStorage and apply it before page load
         const storedTheme = localStorage.getItem("theme");
         if (storedTheme === "light") {
-            document
-                .querySelector("html")
-                .setAttribute("data-bs-theme", storedTheme);
+            document.querySelector("html").setAttribute("data-bs-theme", storedTheme);
         }
     </script>
     <header class="border-bottom mb-3 d-flex flex-column">
@@ -58,22 +56,18 @@
                 </g>
             </svg></a>
             <!-- Menu Options -->
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <form class="col-12 col-lg-4 mb-3 mb-lg-0 ms-lg-3" role="search">
+                <input type="search" class="form-control" placeholder="Search anime..." aria-label="Search" />
+            </form>
+            <ul class="nav col-12 col-lg-auto mb-2 mb-md-0 ms-3">
                 <li>
-                    <a href="#" class="nav-link px-2 link-body-emphasis">Option 1</a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link px-2 link-secondary">Option 2</a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link px-2 link-secondary">Option 3</a>
+                    <form action="/random" method="post">
+                        <button type="submit" class="nav-link px-2 <%= activePage === 'Random' ? ' link-body-emphasis' : 'link-secondary' %>">Random</a>
+                    </form>
                 </li>
             </ul>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
-            </form>
             <!-- Toggle theme -->
-            <div class="nav-item dropdown">
+            <div class="nav-item dropdown ms-auto">
                 <!-- Current theme -->
                 <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="theme-menu"
                     aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static"
