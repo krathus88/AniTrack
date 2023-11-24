@@ -36,10 +36,18 @@
         <h3>Top Anime</h3>
         <hr>
         <div class="d-flex flex-nowrap overflow-hidden">
-            <% for(let i=0; i<12; i++) { %>
-                <a href="#" style="width: auto">
-                    <img class="img-widget rounded-2 pe-3" src="<%- topAnime[i].images.jpg.large_image_url %>">
-                </a>
+            <% for(let i=0; i<20; i++) { %>
+                <% const englishTitle = topAnime[i].titles.find(title => title.type === "English"); %>
+                <% const displayTitle = englishTitle ? englishTitle.title : topAnime[i].titles.find(title => title.type === "Default").title; %>
+                <form action="/anime" method="post" class="me-3">
+                    <button type="submit" class="btn position-relative p-0" name="animeID" value="<%- topAnime[i].mal_id %>">
+                        <!-- This button is invisible and covers the entire area of the form -->
+                        <img class="img-widget rounded-2" src="<%- topAnime[i].images.jpg.large_image_url %>" />
+                        <div class="slider-window rounded-2 position-absolute top-0 start-0 w-100">
+                            <p class="m-0"><%- displayTitle %></p>
+                        </div>
+                    </button>
+                </form>
             <% } %>
             <!-- Left button -->
             <button class="btn custom-btn position-absolute" aria-hidden="true" onclick="scrollSliderLeft()">
@@ -70,6 +78,20 @@
                 container.scrollBy({ left: 250, behavior: 'smooth' });
             }
         }
+
+        $("button.position-relative").mouseenter(function() {
+                const sliderWindow = $(this).find(".slider-window");
+                sliderWindow.css({
+                    "transform": "translateY(0%)",
+                });
+            });
+
+        $("button.position-relative").mouseleave(function() {
+            const sliderWindow = $(this).find(".slider-window");
+            sliderWindow.css({
+                "transform": "translateY(-100%)",
+            });
+        });
     </script>
 </main>
 <%- include("partials/footer.ejs") %>
