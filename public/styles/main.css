@@ -50,25 +50,40 @@ body {
     font-weight: 700;
 }
 
+/* Imagine in the carousel */
 .img-background {
     max-height: 600px;
     width: 100%;
     object-fit: cover;
 }
 
+/* Image in Top Anime Slider */
 .img-widget {
     width: 175px;
     height: 250px;
     object-fit: cover;
 }
 
+/* Image in the search preview */
+.img-search-preview {
+    width: 85px!important;
+    height: 85px!important;
+    min-width: 85px;
+    object-fit: cover;
+}
+
+/* Image in anime.ejs */
 .img-widget-bigger {
     width: 300px;
     height: 400px;
     object-fit: cover;
 }
 
-[data-bs-theme="dark"] .carousel .carousel-indicators [data-bs-target] {
+.text-hover:hover {
+    color: rgb(175, 175, 175);
+}
+
+.carousel .carousel-indicators [data-bs-target] {
     background-color: white;
 }
 
@@ -82,9 +97,16 @@ body {
     background-color: rgba(39, 39, 39, 0.5); /* Change to grey when hovering */
 }
 
-.truncate-text {
+.truncate-text-carousel {
     display: -webkit-box;
     -webkit-line-clamp: 4; /* Adjust the number of lines as needed */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.truncate-text-search {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Adjust the number of lines as needed */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

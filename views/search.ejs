@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+    <main class="container-fluid col-sm-10 bg-body-tertiary rounded-3 py-2">
+        <div class="d-md-flex">
+            <form action="/anime" method="post" class="row row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 g-3 gy-5">
+                <% for(let i=0; i < animeTitle.length; i++) { %>
+                    <div class="col mb-4">
+                        <button type="submit" class="btn position-relative p-0" style="height: 100%; width: 100%;" name="animeID" value="<%- resultAnime[i].mal_id %>">
+                            <!-- This button is invisible and covers the entire area of the form -->
+                            <img class="img-fluid rounded-2" style="height: 100%; object-fit: cover !important;" src="<%- resultAnime[i].images.jpg.large_image_url %>" alt="<%- animeTitle[i] %>" />
+                            <p class="m-0 px-2 pt-2 text-hover text-start truncate-text-search"><%- animeTitle[i] %></p>
+                        </button>
+                    </div>
+                <% } %>
+            </form>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            <form action="/search" method="get">
+                <!-- Saves the userInput to navigate between pages -->
+                <input type="hidden" name="keyword" value="<%= userInput %>">
+                <% // Calculate the starting page number
+                const startPage = Math.max(1, pagination.current_page - 2);
+                // Calculate the ending page number
+                const endPage = Math.min(pagination.last_visible_page, startPage + 4);%>
+                
+                <% for(let i = startPage; i <= endPage; i++) { %>
+                    <button type="submit" name="page" value="<%= i %>" class="btn btn-secondary mt-3 mx-1"><%= i %></button>
+                <% } %>
+            </form>
+        </div>
+    </main>
+<%- include("partials/footer.ejs") %>

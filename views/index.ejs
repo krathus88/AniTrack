@@ -16,8 +16,10 @@
                         <div class="row align-items-center">
                             <div class="col-md-4">
                                 <h1 class="bold-text"><%- animeInfo[i].title_english %></h1>
-                                <p class="opacity-75 light-text truncate-text" style="font-size: 18px;" ><%- animeInfo[i].synopsis %></p>
-                                <a class="btn btn-lg btn-primary" href="#" style="z-index: 3; position: relative">Learn More</a>
+                                <p class="opacity-75 light-text truncate-text-carousel" style="font-size: 18px;" ><%- animeInfo[i].synopsis %></p>
+                                <form action="/anime" method="post">
+                                    <button name="animeID" value="<%- animeInfo[i].mal_id %>" class="btn btn-lg btn-primary" style="z-index: 3; position: relative">Learn More</button>
+                                </form>
                             </div>
                             <div class="col-md-8 d-flex justify-content-end align-items-center">
                                 <img src="/images/<%- animeInfo[i].title_english.replace(/\s+/g, '-').replace(/:/g, '') %>-background.jpg" class="img-background rounded-5" aria-hidden="true" focusable="false" />
