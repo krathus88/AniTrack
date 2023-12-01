@@ -90,7 +90,6 @@ app.get("/search", async (req, res) => {
         for (let i = 0; i < animeSearchResult.data.data.length; i++) {
             animeTitle.push(findAnimeTitle(animeSearchResult.data.data[i]));
         }
-
         res.render("search.ejs", {
             activePage,
             animeTitle,

@@ -1,5 +1,6 @@
 <%- include("partials/header.ejs") %>
     <main class="container-fluid col-sm-10 bg-body-tertiary rounded-3 py-2">
+        <% if(locals.resultAnime && locals.resultAnime.length > 0) { %>
         <div class="d-md-flex">
             <form action="/anime" method="post" class="row row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2 g-3 gy-5">
                 <% for(let i=0; i < animeTitle.length; i++) { %>
@@ -27,5 +28,8 @@
                 <% } %>
             </form>
         </div>
+        <% } else { %>
+        <h5 class="text-center">Sorry, couldn't find any results for your search..</h5>
+        <% } %>
     </main>
 <%- include("partials/footer.ejs") %>
