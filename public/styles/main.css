@@ -32,6 +32,39 @@ html[data-bs-theme="light"] {
     }
 }
 
+@media (max-width: 575px) {
+    #carousel {
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+
+    #carousel img {
+        border-radius: 10px !important;
+    }
+
+    #top-anime {
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+
+    .top-arrow-right {
+        transform: translateX(53%) !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .carousel .carousel-indicators {
+        justify-content: end !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel form {
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+}
+
 /* Normal (400) weight */
 body {
     font-family: 'Signika', sans-serif;
@@ -87,14 +120,43 @@ body {
     background-color: white;
 }
 
-.custom-btn {
+.top-btn {
     width: 75px;
-    height: 250px;
+    height: 251px;
     color: transparent;
 }
 
-.custom-btn:hover {
+.top-btn:hover {
     background-color: rgba(39, 39, 39, 0.5); /* Change to grey when hovering */
+}
+
+.carousel-btn {
+    min-width: 150px;
+    color: transparent;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(39, 39, 39, 0.5); /* Change to grey when hovering */
+}
+
+.prev-arrow {
+    transform: translateX(-60%);
+}
+
+.next-arrow {
+    transform: translateX(60%);
+}
+
+.carousel-btn svg {
+    position: absolute; /* Position the SVG absolutely */
+}
+
+.prev-arrow svg {
+    left: 70%;
+}
+
+.next-arrow svg {
+    right: 70%;
 }
 
 .truncate-text-carousel {

@@ -34,7 +34,8 @@ let animeResult; // Saves or Deletes the anime result given previously
 let animeSearchResult; // Saves or Deletes the Search anime result given previously
 let randomAnimeResult; // Saves or Deletes the Random anime result given previously
 
-// Animes displayed in the carousel, requires background image in ./public/images  || image's name must be set as: <animeName>-background.jpg (anime name must be separated by "-" and must be the same as title_english, sent back from the API)
+// Animes displayed in the carousel, requires background image in ./public/images 
+// image's name must be set as: <animeName>-background.jpg (anime name must be separated by "-" and must be the same as title_english, sent back from the API)
 const animeID = [
     "21", // One Piece
     "40748", // Jujutsu Kaisen

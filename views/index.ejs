@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
-<main>
+<main style="overflow-x: hidden;">
     <!-- Carousel -->
-    <div class="mx-5 mb-4">
+    <div class="mx-5 mb-4" id="carousel">
         <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
             <div class="carousel-indicators justify-content-start">
                 <% for(let i=0; i<animeInfo.length; i++) { %>
@@ -29,12 +29,22 @@
                 <% } %>
             </div>
             <!-- Right and Left Buttons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev"></button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next"></button>
+            <!-- Left Button -->
+            <button class="carousel-control-prev carousel-btn prev-arrow rounded-3" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+                </svg>
+            </button>
+            <!-- Right Button -->
+            <button class="carousel-control-next carousel-btn next-arrow rounded-3" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                </svg>
+            </button>
         </div>
     </div>
     <!-- Top Anime -->
-    <div class="mx-5 mb-4">
+    <div class="mx-5 mb-4" id="top-anime">
         <h3>Top Anime</h3>
         <hr>
         <div class="d-flex flex-nowrap overflow-hidden">
@@ -52,13 +62,13 @@
                 </form>
             <% } %>
             <!-- Left button -->
-            <button class="btn custom-btn position-absolute" aria-hidden="true" onclick="scrollSliderLeft()">
+            <button class="btn top-btn top-arrow-left position-absolute" aria-hidden="true" onclick="scrollSliderLeft()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
                 </svg>
             </button>
             <!-- Right button -->
-            <button class="btn custom-btn position-absolute end-0 mx-5" aria-hidden="true" onclick="scrollSliderRight()">
+            <button class="btn top-btn top-arrow-right position-absolute end-0 mx-5" aria-hidden="true" onclick="scrollSliderRight()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
                 </svg>
