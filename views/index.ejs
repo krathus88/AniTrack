@@ -17,7 +17,7 @@
                             <div class="col-md-4">
                                 <h1 class="bold-text"><%- animeInfo[i].title_english %></h1>
                                 <p class="opacity-75 light-text truncate-text-carousel" style="font-size: 18px;" ><%- animeInfo[i].synopsis %></p>
-                                <form action="/anime" method="post">
+                                <form action="/anime" method="get">
                                     <button name="animeID" value="<%- animeInfo[i].mal_id %>" class="btn btn-lg btn-primary" style="z-index: 3; position: relative">Learn More</button>
                                 </form>
                             </div>
@@ -53,7 +53,6 @@
                 <% const displayTitle = englishTitle ? englishTitle.title : topAnime[i].titles.find(title => title.type === "Default").title; %>
                 <form action="/anime" method="post" class="me-3">
                     <button type="submit" class="btn position-relative p-0" name="animeID" value="<%- topAnime[i].mal_id %>">
-                        <!-- This button is invisible and covers the entire area of the form -->
                         <img class="img-widget rounded-2" src="<%- topAnime[i].images.jpg.large_image_url %>" />
                         <div class="slider-window rounded-2 position-absolute top-0 start-0 w-100">
                             <p class="m-0"><%- displayTitle %></p>

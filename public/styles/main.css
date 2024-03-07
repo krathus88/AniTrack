@@ -67,20 +67,32 @@ html[data-bs-theme="light"] {
 
 /* Normal (400) weight */
 body {
-    font-family: 'Signika', sans-serif;
-    font-weight: 500;
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "GRAD" 0;
 }
 
 /* Light (300) weight */
 .light-text {
-    font-family: 'Signika', sans-serif;
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+        "GRAD" 0;
 }
 
 /* Bold (700) weight */
 .bold-text {
-    font-family: 'Signika', sans-serif;
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "GRAD" 0;
 }
 
 /* Imagine in the carousel */
