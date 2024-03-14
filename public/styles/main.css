@@ -23,32 +23,12 @@ html[data-bs-theme="light"] {
         border-color: #c0c1c5!important;
     }
 
-    .custom-svg {
-        fill: #212529;
+    #upper-menu > div > div > button {
+        color: white !important;
     }
 
     .carousel .carousel-indicators [data-bs-target] {
         background-color: #212529;
-    }
-}
-
-@media (max-width: 575px) {
-    #carousel {
-        margin-right: 0.5rem !important;
-        margin-left: 0.5rem !important;
-    }
-
-    #carousel img {
-        border-radius: 10px !important;
-    }
-
-    #top-anime {
-        margin-right: 0.5rem !important;
-        margin-left: 0.5rem !important;
-    }
-
-    .top-arrow-right {
-        transform: translateX(53%) !important;
     }
 }
 
@@ -63,6 +43,92 @@ html[data-bs-theme="light"] {
         text-align: center;
         padding-bottom: 1rem;
     }
+    .search {
+        order: 2 !important;
+    }
+    li .nav-item {
+        order: 1 !important;
+    }
+    #upper-menu {
+        order: 1 !important;
+    }
+    #navbarCollapse {
+        order: 2 !important;
+    }
+}
+
+@media (min-width: 766px) {
+    #navbarCollapse {
+        border-top: none !important;
+    }
+}
+
+@media (max-width: 575px) {
+    html[data-bs-theme="light"] .top-btn {
+        background-color: #0d6efd !important;
+    }
+    
+    #carousel {
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+
+    #carousel img {
+        border-radius: 10px !important;
+    }
+
+    .carousel .carousel-indicators {
+        position: relative;
+        justify-content: center !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .carousel-btn {
+        display: none;
+    }
+
+    #top-anime {
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+
+    #top-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100%); /* Adjust margin to leave space for buttons */
+        margin-top: 0.5rem; /* Add margin to match margin applied to carousel */
+    }
+
+    .top-btn {
+        position: static !important;
+        width: calc(50% - 0.5rem) !important; /* Adjust width for two buttons with margin */
+        height: 50px !important;
+        color: white !important;
+        background-color: #31363F !important;
+    }
+
+    .slider-window {
+        display: none !important;
+    }
+
+    .anime-title {
+        margin-bottom: 0.25rem !important;
+        height: 48px !important;
+    }
+}
+
+#navbar-search-toggle {
+    border: none !important;
+}
+.navbar {
+    --bs-navbar-padding-y: 0;
+}
+.anime-title {
+    display: none !important;
+}
+
+.border {
+    border: none !important;
 }
 
 /* Normal (400) weight */
@@ -71,8 +137,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-variation-settings:
-        "GRAD" 0;
+    font-variation-settings: "GRAD" 0;  
 }
 
 /* Light (300) weight */
@@ -136,6 +201,15 @@ body {
     width: 75px;
     height: 251px;
     color: transparent;
+}
+
+.top-arrow-right {
+    top: 0;
+    right: 0;
+}
+
+.top-arrow-left {
+    top: 0;
 }
 
 .top-btn:hover {

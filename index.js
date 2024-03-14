@@ -8,7 +8,7 @@ const app = express();
 require('dotenv').config()
 
 const port = process.env.PORT || 3000;
-const API_URL = process.env.API_URL || "https://api.jikan.moe/v4";
+const API_URL = process.env.API_URL;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

@@ -1,5 +1,6 @@
 <%- include("partials/header.ejs") %>
-    <main class="container bg-body-tertiary rounded-3 d-md-flex" style="padding-left: 0px;">
+    <main>
+        <div class="container bg-body-tertiary rounded-3 d-md-flex">
             <div class="border-end">
                 <img class="img-widget-bigger rounded-2" src="<%- resultAnime.image %>" />
                 <div class="container light-text">
@@ -21,5 +22,7 @@
                     <p>No trailer available</p>
                 <% } %>
             </div>
+        </div>
+            
     </main>
 <%- include("partials/footer.ejs") %>

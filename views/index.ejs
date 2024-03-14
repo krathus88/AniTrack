@@ -2,14 +2,7 @@
     <main style="overflow-x: hidden;">
         <!-- Carousel -->
         <div class="mx-5 mb-4" id="carousel">
-            <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-                <div class="carousel-indicators justify-content-start">
-                    <% for(let i=0; i<animeInfo.length; i++) { %>
-                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= i %>"
-                            class="<%= i === 0 ? 'active' : '' %>" aria-label="Slide <%= i %>"
-                            aria-current="<%= i === 0 ? 'true' : 'false' %>"></button>
-                        <% } %>
-                </div>
+            <div id="myCarousel" class="carousel slide pointer-event mb-6" data-bs-ride="carousel">
                 <!-- Carousel Items -->
                 <div class="carousel-inner d-flex">
                     <% for(let i=0; i<animeInfo.length; i++) { %>
@@ -31,6 +24,13 @@
                                 </div>
                             </div>
                         </div>
+                        <% } %>
+                </div>
+                <div class="carousel-indicators justify-content-start">
+                    <% for(let i=0; i<animeInfo.length; i++) { %>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= i %>"
+                            class="<%= i === 0 ? 'active' : '' %>" aria-label="Slide <%= i %>"
+                            aria-current="<%= i === 0 ? 'true' : 'false' %>"></button>
                         <% } %>
                 </div>
                 <!-- Right and Left Buttons -->
@@ -60,12 +60,14 @@
         <div class="mx-5 mb-4" id="top-anime">
             <h3>Top Anime</h3>
             <hr>
-            <div class="d-flex flex-nowrap overflow-hidden">
-                <% for(let i=0; i<20; i++) { %>
-                    <% const englishTitle=topAnime[i].titles.find(title=> title.type === "English"); %>
+            <div class="position-relative">
+                <form action="/anime" method="post" class="d-flex flex-nowrap overflow-hidden" id="top-anime-group">
+                    <% for(let i=0; i<20; i++) { %>
+                        <% const englishTitle=topAnime[i].titles.find(title=> title.type === "English"); %>
                         <% const displayTitle=englishTitle ? englishTitle.title : topAnime[i].titles.find(title=>
                             title.type === "Default").title; %>
-                            <form action="/anime" method="post" class="me-3">
+                            <div class="me-3 border rounded-3">
+                                <p class="d-flex justify-content-center align-items-center text-center anime-title"><%- displayTitle %></p>
                                 <button type="submit" class="btn position-relative p-0" name="animeID"
                                     value="<%- topAnime[i].mal_id %>">
                                     <img class="img-widget rounded-2"
@@ -74,57 +76,68 @@
                                         <p class="m-0"><%- displayTitle %></p>
                                     </div>
                                 </button>
-                            </form>
+                            </div>
                             <% } %>
-                                <!-- Left button -->
-                                <button class="btn top-btn top-arrow-left position-absolute" aria-hidden="true"
-                                    onclick="scrollSliderLeft()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-chevron-left" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                                    </svg>
-                                </button>
-                                <!-- Right button -->
-                                <button class="btn top-btn top-arrow-right position-absolute end-0 mx-5"
-                                    aria-hidden="true" onclick="scrollSliderRight()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                                    </svg>
-                                </button>
+                </form>
+                <div class="d-flex justify-content-between" id="top-buttons">
+                    <!-- Left button -->
+                    <button class="btn top-btn top-arrow-left position-absolute" aria-hidden="true"
+                        onclick="scrollSliderLeft()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </button>
+                    <!-- Right button -->
+                    <button class="btn top-btn top-arrow-right position-absolute"
+                        aria-hidden="true" onclick="scrollSliderRight()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                </div>
+                <script>
+                    const container = document.querySelector('#top-anime-group');
+        
+                    function scrollSliderLeft()
+                    {
+                        container.scrollBy({ left: -250, behavior: 'smooth' });
+                    }
+                    function scrollSliderRight()
+                    {
+                        // Check if we are at the end of the slider
+                        if (container.scrollLeft + container.clientWidth >= container.scrollWidth)
+                        {
+                            // If at the end, scroll back to the start
+                            container.scrollTo({ left: 0, behavior: 'smooth' });
+                        } else
+                        {
+                            // If not at the end, continue scrolling to the right
+                            container.scrollBy({ left: 250, behavior: 'smooth' });
+                        }
+                    }
+        
+        
+                    $("button.position-relative").mouseenter(function ()
+                    {
+                        const sliderWindow = $(this).find(".slider-window");
+                        sliderWindow.css({
+                            "transform": "translateY(0%)",
+                        });
+                    });
+        
+                    $("button.position-relative").mouseleave(function ()
+                    {
+                        const sliderWindow = $(this).find(".slider-window");
+                        sliderWindow.css({
+                            "transform": "translateY(-100%)",
+                        });
+                    });
+                </script>
             </div>
         </div>
-        <script>
-            function scrollSliderLeft() {
-                document.querySelector('.overflow-hidden').scrollBy({ left: -250, behavior: 'smooth' });
-            }
-            function scrollSliderRight() {
-                const container = document.querySelector('.overflow-hidden');
-                // Check if we are at the end of the slider
-                if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
-                    // If at the end, scroll back to the start
-                    container.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    // If not at the end, continue scrolling to the right
-                    container.scrollBy({ left: 250, behavior: 'smooth' });
-                }
-            }
-
-            $("button.position-relative").mouseenter(function () {
-                const sliderWindow = $(this).find(".slider-window");
-                sliderWindow.css({
-                    "transform": "translateY(0%)",
-                });
-            });
-
-            $("button.position-relative").mouseleave(function () {
-                const sliderWindow = $(this).find(".slider-window");
-                sliderWindow.css({
-                    "transform": "translateY(-100%)",
-                });
-            });
-        </script>
     </main>
     <%- include("partials/footer.ejs") %>
