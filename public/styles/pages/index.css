@@ -1,0 +1,166 @@
+/* Light Mode CSS */
+html[data-bs-theme="light"] {
+    .carousel .carousel-indicators [data-bs-target] {
+        background-color: #212529;
+    }
+}
+
+@media (max-width: 991px) {
+    .carousel .carousel-indicators {
+        justify-content: end !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel form {
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    #carousel {
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+
+    #carousel img {
+        border-radius: 10px !important;
+    }
+
+    .carousel .carousel-indicators {
+        position: relative;
+        justify-content: center !important;
+        margin-top: 0.5rem !important;
+    }
+    .carousel-btn {
+        display: none;
+    }
+    .anime-title {
+        margin-bottom: 0.25rem !important;
+        height: 48px !important;
+    }
+    .slider-window {
+        display: none !important;
+    }
+    html[data-bs-theme="light"] .top-btn {
+        background-color: #0d6efd !important;
+    }
+    .top-btn {
+        position: static !important;
+        width: calc(50% - 0.5rem) !important; /* Adjust width for two buttons with margin */
+        height: 50px !important;
+        color: white !important;
+        background-color: #31363F !important;
+    }
+    #top-anime {
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
+    }
+    #top-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100%); /* Adjust margin to leave space for buttons */
+        margin-top: 0.5rem; /* Add margin to match margin applied to carousel */
+    }
+    
+}
+
+/* Carousel */
+.truncate-text-carousel {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Adjust the number of lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.img-background {
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel .carousel-indicators [data-bs-target] {
+    background-color: white;
+}
+
+.carousel-btn {
+    min-width: 150px;
+    color: transparent;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(39, 39, 39, 0.5); /* Change to grey when hovering */
+}
+
+.carousel-btn svg {
+    position: absolute;
+}
+
+.prev-arrow {
+    transform: translateX(-60%);
+}
+
+.next-arrow {
+    transform: translateX(60%);
+}
+
+.prev-arrow svg {
+    left: 70%;
+}
+
+.next-arrow svg {
+    right: 70%;
+}
+
+/* Top Anime */
+.border {
+    border: none !important;
+}
+
+.anime-title {
+    display: none !important;
+}
+
+.img-widget {
+    width: 175px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.slider-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    height: 25%;
+    top: 75%;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+    border-radius: 0 0 10px 10px;
+}
+
+.top-btn {
+    width: 75px;
+    height: 251px;
+    color: transparent;
+}
+
+.top-btn:hover {
+    background-color: rgba(39, 39, 39, 0.5); /* Change to grey when hovering */
+}
+
+.top-arrow-right {
+    top: 0;
+    right: 0;
+}
+
+.top-arrow-left {
+    top: 0;
+}
+
