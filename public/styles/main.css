@@ -17,6 +17,11 @@ html[data-bs-theme="light"] {
     }
 }
 
+body,
+html {
+  overflow-x: clip;
+}
+
 /* Normal (400) weight */
 body {
     font-family: "Signika", sans-serif;

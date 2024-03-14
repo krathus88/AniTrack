@@ -181,6 +181,28 @@
                                 const searchResultsContainer = document.getElementById('searchResultsContainer');
                             
                                 let searchTimeout;
+
+                                // Function to close search results container
+                                const closeSearchResults = () => {
+                                    searchResultsContainer.style.display = 'none';
+                                };
+
+                                // Function to open search results container
+                                const openSearchResults = () => {
+                                    if (searchInput.value.trim() !== '') {
+                                        searchResultsContainer.style.display = 'block';
+                                    }
+                                };
+
+                                // Click event listener to close search results when clicking outside
+                                document.addEventListener('click', function (event) {
+                                    if (!searchResultsContainer.contains(event.target) && event.target !== searchInput) {
+                                        closeSearchResults();
+                                    }
+                                });
+
+                                // Focus event listener to open search results when focusing on search input
+                                searchInput.addEventListener('focus', openSearchResults);
                             
                                 searchInput.addEventListener('input', function (event) {
                                     clearTimeout(searchTimeout);
@@ -194,6 +216,8 @@
                                         document.getElementById('result3').style.display = 'none';
                                         return;
                                     }
+
+                                    openSearchResults();
                             
                                     searchTimeout = setTimeout(async function () {
                                         try {
