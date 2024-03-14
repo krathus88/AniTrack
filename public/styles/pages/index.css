@@ -43,27 +43,15 @@ html[data-bs-theme="light"] {
     .slider-window {
         display: none !important;
     }
-    html[data-bs-theme="light"] .top-btn {
-        background-color: #0d6efd !important;
-    }
-    .top-btn {
-        position: static !important;
-        width: calc(50% - 0.5rem) !important; /* Adjust width for two buttons with margin */
-        height: 50px !important;
-        color: white !important;
-        background-color: #31363F !important;
-    }
+    
     #top-anime {
         margin-right: 0.5rem !important;
         margin-left: 0.5rem !important;
     }
+
     #top-buttons {
-        display: flex;
-        justify-content: space-between;
-        width: calc(100%); /* Adjust margin to leave space for buttons */
-        margin-top: 0.5rem; /* Add margin to match margin applied to carousel */
+        display: none;
     }
-    
 }
 
 /* Carousel */
@@ -114,6 +102,16 @@ html[data-bs-theme="light"] {
 }
 
 /* Top Anime */
+#top-anime-group {
+    overflow-x: scroll !important; /* Enable horizontal scrolling */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#top-anime-group::-webkit-scrollbar {
+    display: none;
+}
+
 .border {
     border: none !important;
 }
@@ -163,4 +161,3 @@ html[data-bs-theme="light"] {
 .top-arrow-left {
     top: 0;
 }
-
