@@ -1,0 +1,56 @@
+/* Light Mode CSS */
+html[data-bs-theme="light"] {
+    body {
+        background: #ECE9E6;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    footer {
+        background-color: #212529;
+        color: white;
+    }
+    .border-bottom {
+        border-color: #c0c1c5!important;
+    }
+    .border-top {
+        border-color: #c0c1c5!important;
+    }
+}
+
+body,
+html {
+  overflow-x: clip;
+}
+
+/* Normal (400) weight */
+body {
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "GRAD" 0;  
+}
+
+/* Light (300) weight */
+.light-text {
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+        "GRAD" 0;
+}
+
+/* Bold (700) weight */
+.bold-text {
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "GRAD" 0;
+}
+
+.text-hover:hover {
+    color: rgb(175, 175, 175);
+}

@@ -1,0 +1,85 @@
+#animeContainer {
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 1320px;
+}
+
+.img-widget-bigger {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Aspect ratio (9:16) */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (max-width: 1350px) {
+    #animeContainer {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: auto;
+    }
+}
+
+@media (max-width: 767px){
+    #animeImageContainer .container {
+        margin: 1rem;
+    }
+    #animeContainer > div {
+        margin: 1rem;
+    }
+    #animeImageContainer {
+        display: flex;
+        border-right: none !important;
+        border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+    }
+
+    .img-widget-bigger {
+        margin: 1rem 0 1rem 0;
+    }
+}
+
+@media (max-width: 575px) {
+    #animeImageContainer {
+        flex-direction: column;
+        align-items: center; /* Align items vertically */
+    }
+    .img-widget-bigger {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    #animeImageContainer .container {
+        margin-top: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #animeImageContainer > div {
+        margin-top: 0;
+    }
+
+    #animeTextContainer {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}

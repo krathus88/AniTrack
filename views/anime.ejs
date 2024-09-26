@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="/styles/pages/anime.css" />
+<main>
+    <div class="container-fluid bg-body-tertiary rounded-3 mt-3" id="animeContainer">
+        <div class="d-md-flex">
+            <div class="border-end" id="animeImageContainer">
+                <img class="img-widget-bigger rounded-2" src="<%- resultAnime.image %>" />
+                <div class="container light-text">
+                    <p class="mt-3"><%- resultAnime.rating %></p>
+                    <p>
+                        <%= resultAnime.aired ? resultAnime.aired : "Aired date not available" %>
+                    </p>
+                    <p>Score: <%= resultAnime.score ? resultAnime.score : "null" %></p>
+                    <p>Rank: <%= resultAnime.rank ? resultAnime.rank : "null" %></p>
+                    <p>
+                        Popularity: <%= resultAnime.popularity ? resultAnime.popularity : "null" %>
+                    </p>
+                    <p>Episodes: <%= resultAnime.episodes %></p>
+                    <p>Duration: <%= resultAnime.duration %></p>
+                </div>
+            </div>
+            <div class="px-3 pb-3 mt-3" id="animeTextContainer">
+                <h1 class="bold-text"><%- animeTitle %></h1>
+                <p class="light-text">
+                    <%= resultAnime.synopsis ? resultAnime.synopsis : "No synopsis available" %>
+                </p>
+                <% if (resultAnime.trailer) { %>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="<%= resultAnime.trailer %>" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <% } else { %>
+                <p>No trailer available</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include("partials/footer.ejs") %>

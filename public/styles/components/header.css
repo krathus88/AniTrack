@@ -1,0 +1,41 @@
+html[data-bs-theme="light"] {
+    .form-control {
+        border-color: #c0c1c5!important;
+    }
+    .button-theme {
+        color: white !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .search {
+        order: 2 !important;
+    }
+    li .nav-item {
+        order: 1 !important;
+    }
+    #upper-menu {
+        order: 1 !important;
+    }
+    #navbarCollapse {
+        order: 2 !important;
+    }
+}
+
+@media (min-width: 766px) {
+    #navbarCollapse {
+        border-top: none !important;
+    }
+}
+
+.navbar {
+    --bs-navbar-padding-y: 0;
+}
+
+/* Image in the search preview */
+.img-search-preview {
+    width: 85px!important;
+    height: 85px!important;
+    min-width: 85px;
+    object-fit: cover;
+}
